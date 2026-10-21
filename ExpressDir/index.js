@@ -19,10 +19,10 @@ app.get("/",(req,res)=>{
 
 // quary string
 app.get("/search",(req,res)=>{
- let {q}=req.query;
- if(!q){
+let {q}=req.query;
+if(!q){
   res.send(`<h1>nothing searched</h1>`)
- }
+}
   res.send(`thses are the search result for our query : ${q}`);
 })
 
