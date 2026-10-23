@@ -6,7 +6,7 @@ const port = 8080;
 
 // using ejs
 app.set("view engine","ejs");
-app.set("views",path.join(__dirname,"views"))
+app.set("views",path.join(__dirname,"/views"))
 
 
 // render 
@@ -37,8 +37,11 @@ app.get("/ig/:username",(req,res)=>{
   let {username} = req.params;
   const instaData = require("./data.json");
   const data = instaData[username];
-  console.log(data);
-  res.render("instagram.ejs" ,{data});
+  if(data){
+    res.render("instagram.ejs" ,{data});
+  }else{
+    res.render("error.ejs");
+  }
 });
 
 
